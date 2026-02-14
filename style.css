@@ -1,0 +1,293 @@
+/* CONFIGURAÇÃO GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(180deg, #001f2d, #004466, #001f2d);
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* FUNDO DE ONDAS ANIMADAS */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(78,183,209,0.2) 0%, transparent 70%);
+    animation: ondas 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes ondas {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(50px) translateY(30px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* HERO */
+.hero {
+    padding: 80px 20px;
+}
+
+.titulo-hidraulico {
+    font-size: 60px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #4eb7d1, #ffffff, #4eb7d1);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: agua 4s linear infinite;
+}
+
+@keyframes agua {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+.encaixe {
+    color: #4eb7d1;
+    font-size: 28px;
+    margin-top: -20px;
+}
+
+.info {
+    opacity: 0.8;
+}
+
+/* SEÇÃO SOBRE */
+.sobre h2 {
+    font-size: 32px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: #0b1f26;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #4eb7d1;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* MARIO E LUIGI LOOP */
+.personagens {
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+.personagens-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: loop 15s linear infinite;
+}
+
+.personagens img {
+    width: 100px;
+    filter: drop-shadow(0 0 10px #4eb7d1);
+}
+
+/* Agora indo para frente (direita) */
+@keyframes loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+}
+
+/* CONTADOR */
+.contador-section h2 {
+    font-size: 28px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+#contador {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tempo-box {
+    background: #0b1f26;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #4eb7d1;
+}
+
+.tempo-box span {
+    font-size: 40px;
+    display: block;
+}
+
+/* PLAYLIST */
+.playlist h2 {
+    font-size: 28px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+/* MÚSICA */
+.musica h2 {
+    font-size: 28px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+.botoes-musica {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.botoes-musica button {
+    background-color: #25D366;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.botoes-musica button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+}
+
+/* LOCALIZAÇÃO */
+.localizacao {
+    padding: 40px 20px;
+}
+
+.localizacao h2 {
+    font-size: 28px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+.botao-mapa {
+    display: inline-block;
+    background-color: #25D366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.botao-mapa:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+}
+
+.localizacao .mapa iframe {
+    border-radius: 15px;
+    box-shadow: 0 0 20px #4eb7d1;
+    width: 100%;
+    height: 400px;
+}
+
+/* VALORES */
+.valores h2 {
+    font-size: 28px;
+    color: #4eb7d1;
+    margin-bottom: 20px;
+}
+
+.valores-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.bloco {
+    background: #08161c;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #4eb7d1;
+    text-align: center;
+}
+
+.bloco h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.categoria {
+    margin-top: 20px;
+    color: #4eb7d1;
+    font-weight: bold;
+}
+
+.preco-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 1rem;
+}
+
+.preco-item span {
+    font-weight: bold;
+    animation: neon 1.5s infinite alternate;
+}
+
+@keyframes neon {
+    from { color: #fff; }
+    to { color: #4eb7d1; text-shadow: 0 0 15px #4eb7d1; }
+}
+
+.preco-item button {
+    background-color: #25D366;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.preco-item button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    background: #0b1f26;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px #4eb7d1;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .titulo-hidraulico {
+        font-size: 40px;
+    }
+}
