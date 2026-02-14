@@ -29,16 +29,25 @@ function iniciarContagem() {
 }
 
 // === ENVIAR MÚSICA ===
-function enviarMusica(nomeMusica) {
-    alert(`🎵 Você sugeriu a música: ${nomeMusica}`);
-    // Aqui você pode integrar com backend ou Google Forms para registrar sugestões
+function enviarMusica() {
+    const numeroMusica = "5591989113963"; // Número para sugestões de música
+    const input = document.getElementById("musicaInput").value.trim();
+
+    if (input === "") {
+        alert("Por favor, digite o nome da música 🎵");
+        return;
+    }
+
+    const mensagem = `🎵 Olá! Quero sugerir a música: ${input} para tocar na Calouresa 2026 🎉`;
+    const url = `https://api.whatsapp.com/send?phone=${numeroMusica}&text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
 }
 
 // === COMPRAR VIA WHATSAPP ===
 function comprarWhatsApp(tipoIngresso) {
-    const numero = "5591999999999"; // Substitua pelo número oficial do evento
+    const numeroIngressos = "5591981061385"; // Número para compra de ingressos
     const mensagem = `Olá! Quero comprar ingresso: ${tipoIngresso} para a Calouresa 2026 🎉`;
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    const url = `https://api.whatsapp.com/send?phone=${numeroIngressos}&text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
 }
 
