@@ -96,7 +96,7 @@ body::before {
     display: flex;
     gap: 40px;
     width: max-content;
-    animation: loop 15s linear infinite;
+    animation: loop 15s linear infinite; /* animação padrão */
 }
 
 .personagens img {
@@ -104,10 +104,20 @@ body::before {
     filter: drop-shadow(0 0 10px #4eb7d1);
 }
 
-/* Agora indo para frente (direita) */
+/* Animação padrão (mais lenta) */
 @keyframes loop {
     0% { transform: translateX(0); }
     100% { transform: translateX(50%); }
+}
+
+/* Animação mais rápida para uma imagem específica */
+.personagens img.rapido {
+    animation: loopRapido 8s linear infinite; /* mais rápido */
+}
+
+@keyframes loopRapido {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(80%); }
 }
 
 /* CONTADOR */
