@@ -43,17 +43,10 @@
     </div>
 
     <!-- MARIO E LUIGI LOOP -->
-    <section class="personagens">
-        <div class="personagens-track">
-            <img src="imagens/LUIGI.png" alt="Mario">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-            <img src="imagens/LUIGI.png" alt="Luigi">
-        </div>
-    </section>
+<section class="personagens">
+    <div class="personagens-track">
+        <img src="imagens/LUIGI.png" alt="Luigi" class="rapido">
+    </div>
 </section>
 
 <!-- CONTAGEM -->
@@ -76,7 +69,8 @@
 <section class="musica">
     <h2>🎵 FALE AQUI A MÚSICA QUE VOCÊ QUER QUE TOQUE NA CALOURESA 🎵</h2>
     <div class="botoes-musica">
-        <button onclick="enviarMusica('NOME DA MÚSICA')">NOME DA MÚSICA</button>
+        <input type="text" id="musicaInput" placeholder="Digite o nome da música" />
+        <button onclick="enviarMusica()">Enviar</button>
     </div>
 </section>
 
