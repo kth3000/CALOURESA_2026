@@ -220,45 +220,58 @@ body::before {
 
 /* VALORES */
 .valores h2 {
-    font-size: 28px;
+    font-size: 24px;
     color: #4eb7d1;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .valores-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* duas colunas fixas */
+    gap: 20px;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding: 40px;
+    padding: 15px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .bloco {
     background: #08161c;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #4eb7d1;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #4eb7d1;
     text-align: center;
 }
 
+/* INDIVIDUAL mais destacado */
+.bloco:first-child {
+    font-size: 1rem; /* aumenta fonte geral */
+    letter-spacing: 1px; /* separa mais as palavras */
+    line-height: 1.6; /* aumenta altura da linha */
+}
+
 .bloco h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .categoria {
-    margin-top: 20px;
+    margin-top: 10px;
     color: #4eb7d1;
     font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 .preco-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 1rem;
+    gap: 8px; /* mais espaço entre elementos */
+    padding: 4px 0;
+    font-size: 0.95rem; /* fonte maior */
+    letter-spacing: 0.5px; /* separação extra */
 }
 
 .preco-item span {
@@ -268,18 +281,20 @@ body::before {
 
 @keyframes neon {
     from { color: #fff; }
-    to { color: #4eb7d1; text-shadow: 0 0 15px #4eb7d1; }
+    to { color: #4eb7d1; text-shadow: 0 0 10px #4eb7d1; }
 }
 
 .preco-item button {
     background-color: #25D366;
     color: #fff;
-    padding: 5px 15px;
-    border-radius: 8px;
+    padding: 4px 12px;
+    border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
     border: none;
     transition: all 0.3s;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 .preco-item button:hover {
@@ -287,17 +302,9 @@ body::before {
     transform: scale(1.05);
 }
 
-/* FOOTER */
-footer {
-    background: #0b1f26;
-    padding: 20px;
-    margin-top: 40px;
-    box-shadow: 0 -2px 10px #4eb7d1;
-}
-
 /* RESPONSIVO */
 @media (max-width: 768px) {
-    .titulo-hidraulico {
-        font-size: 40px;
+    .valores-grid {
+        grid-template-columns: 1fr; /* em telas menores vira uma coluna */
     }
 }
