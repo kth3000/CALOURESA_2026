@@ -4,25 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calouresa 2026 - Encaixe Hidráulico</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-    /* Fundo aquático */
-    body {
-        margin: 0;
-        font-family: 'Orbitron', sans-serif;
-        background: linear-gradient(180deg, #001f2d, #004466, #001f2d);
-        background-attachment: fixed;
-        background-size: cover;
-        color: white;
-        text-align: center;
-        overflow-x: hidden;
-    }
-</style>
+
 </head>
 <body>
 
-<!-- HERO -->
+<div class="chuva"></div>
+<div class="relogio" id="relogio"></div>
+
 <section class="hero">
     <h1 class="titulo-hidraulico">CALOURESA 2026</h1>
     <h2 class="encaixe">ENCAIXE HIDRÁULICO</h2>
@@ -30,32 +21,35 @@
     <p class="info">📍 Sítio Regina Coely - Ananindeua</p>
 </section>
 
-<!-- O QUE VAI TER ? -->
-<section class="sobre">
-    <h2>🔥 O QUE VAI TER 🔥</h2>
-    <div class="grid">
-        <div class="card">💦 Open de Chorume Alcoólico</div>
-        <div class="card">🎧 DJ ao vivo</div>
-        <div class="card">⚽ Campo de Futebol</div>
-        <div class="card">🏐 Arena de Vôlei</div>
-        <div class="card">🌊 Piscina liberada</div>
-        <div class="card">🥳 Jogos Etílicos</div>
-    </div>
-
-    <!-- MARIO E LUIGI LOOP -->
 <section class="personagens">
-    <div class="personagens-track">
-        <img src="imagens/LUIGI.png" alt="Luigi" class="rapido">
-    </div>
+    <img src="imagens/LUIGI.png" alt="Luigi" class="personagem">
 </section>
 
-<!-- CONTAGEM -->
 <section class="contador-section">
     <h2>⏳ CONTAGEM REGRESSIVA ⏳</h2>
-    <div id="contador"></div>
+    <div class="painel">
+        <div class="bloco-tempo">
+            <div class="numero" id="dias">00</div>
+            <div class="legenda">DIAS</div>
+        </div>
+        <div class="separador">:</div>
+        <div class="bloco-tempo">
+            <div class="numero" id="horas">00</div>
+            <div class="legenda">HORAS</div>
+        </div>
+        <div class="separador">:</div>
+        <div class="bloco-tempo">
+            <div class="numero" id="minutos">00</div>
+            <div class="legenda">MIN</div>
+        </div>
+        <div class="separador">:</div>
+        <div class="bloco-tempo">
+            <div class="numero" id="segundos">00</div>
+            <div class="legenda">SEG</div>
+        </div>
+    </div>
 </section>
 
-<!-- PLAYLIST -->
 <section class="playlist">
     <h2>🎵 Playlist Oficial</h2>
     <iframe style="border-radius:12px"
@@ -65,88 +59,97 @@
         loading="lazy"></iframe>
 </section>
 
-<!-- FALE AQUI A MÚSICA -->
 <section class="musica">
-    <h2>🎵 FALE AQUI A MÚSICA QUE VOCÊ QUER QUE TOQUE NA CALOURESA 🎵</h2>
-    <div class="botoes-musica">
-        <input type="text" id="musicaInput" placeholder="Digite o nome da música" />
-        <button onclick="enviarMusica()">Enviar</button>
-    </div>
+<h2>🎵 FALE AQUI A MÚSICA QUE VOCÊ QUER QUE TOQUE 🎵</h2>
+
+<div class="musica-box">
+<input type="text" id="musicaInput" placeholder="Digite o nome da música..." />
+<button onclick="enviarMusica()">ENVIAR MÚSICA</button>
+</div>
+
+<p id="mensagemMusica"></p>
 </section>
 
-<!-- LOCALIZAÇÃO -->
+<!-- ✅ LOCALIZAÇÃO AGORA ACIMA DOS INGRESSOS -->
 <section class="localizacao">
-    <h2>📍 LOCALIZAÇÃO</h2>
-    <p>
-        <a href="https://www.google.com/maps/place/S%C3%ADtio+Regina+Coely/@-1.3736179,-48.4008367,19.86z/data=!4m6!3m5!1s0x92a48b7b9533f071:0xaf0c495e77cf8613!8m2!3d-1.3735882!4d-48.400485!16s%2Fg%2F11v0lgk_wz?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D" 
-            target="_blank" class="botao-mapa">
-            👉 Abrir no Google Maps
-        </a>
-    </p>
-    <div class="mapa">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789!2d-48.4008367!3d-1.3736179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48b7b9533f071%3A0xaf0c495e77cf8613!2sS%C3%ADtio%20Regina%20Coely!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
-            width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
+<h2>📍 LOCALIZAÇÃO</h2>
+
+<p>Sítio Regina Coely - Ananindeua</p>
+
+<a href="https://www.google.com/maps/search/?api=1&query=Passagem+Jardim+Brasil,+54+-+Levilândia,+Ananindeua+-+PA,+66650-204"
+    target="_blank"
+    class="botao-maps">
+    ABRIR NO GOOGLE MAPS
+</a>
+
+<div class="mapa">
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.123456789!2d-48.400485!3d-1.3735882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48b7b9533f071%3A0xaf0c495e77cf8613!2sS%C3%ADtio%20Regina%20Coely!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+width="100%"
+height="350"
+style="border:0; margin-top:25px; border-radius:8px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+</div>
 </section>
-<!-- VALORES -->
+
 <section class="valores">
-    <h2>🎟 INGRESSOS INDIVIDUAIS E COMBOS 🎟</h2>
-    <div class="valores-grid">
+<h2>🎟 INGRESSOS 🎟</h2>
 
-        <!-- INDIVIDUAL -->
-        <div class="bloco">
-            <h3>INDIVIDUAL</h3>
-            <div class="preco-item">
-                CALOURO AMBIENTAL/ITEC: <span>R$15,00</span>
-                <button onclick="comprarWhatsApp('calouro individual')">Comprar</button>
-            </div>
-            <div class="preco-item">
-                VETERANO AMBIENTAL/ITEC: <span>R$20,00</span>
-                <button onclick="comprarWhatsApp('veterano individual')">Comprar</button>
-            </div>
-            <div class="preco-item">
-                EXTERNOS: <span>R$25,00</span>
-                <button onclick="comprarWhatsApp('externo individual')">Comprar</button>
-            </div>
-        </div>
+<div class="bloco">
+<h3>INDIVIDUAL</h3>
 
-        <!-- COMBOS -->
-        <div class="bloco">
-            <h3>COMBOS</h3>
-            <p class="categoria">CALOUROS AMBIENTAL/ITEC</p>
-            <div class="preco-item">
-                Casadinho: <span>R$25,00</span>
-                <button onclick="comprarWhatsApp('combo calouro casadinho')">Comprar</button>
-            </div>
-            <div class="preco-item">
-                Triplo: <span>R$35,00</span>
-                <button onclick="comprarWhatsApp('combo calouro triplo')">Comprar</button>
-            </div>
+<div class="preco-item">
+<span>CALOURO AMBIENTAL/ITEC - R$15,00</span>
+<button onclick="comprarWhatsApp('Calouro Individual R$15')">COMPRAR</button>
+</div>
 
-            <p class="categoria">VETERANOS AMBIENTAL/ITEC</p>
-            <div class="preco-item">
-                Casadinho: <span>R$35,00</span>
-                <button onclick="comprarWhatsApp('combo veterano casadinho')">Comprar</button>
-            </div>
-            <div class="preco-item">
-                Triplo: <span>R$50,00</span>
-                <button onclick="comprarWhatsApp('combo veterano triplo')">Comprar</button>
-            </div>
+<div class="preco-item">
+<span>VETERANO AMBIENTAL/ITEC - R$20,00</span>
+<button onclick="comprarWhatsApp('Veterano Individual R$20')">COMPRAR</button>
+</div>
 
-            <p class="categoria">EXTERNOS</p>
-            <div class="preco-item">
-                Casadinho: <span>R$45,00</span>
-                <button onclick="comprarWhatsApp('combo externo casadinho')">Comprar</button>
-            </div>
-            <div class="preco-item">
-                Triplo: <span>R$60,00</span>
-                <button onclick="comprarWhatsApp('combo externo triplo')">Comprar</button>
-            </div>
-        </div>
+<div class="preco-item">
+<span>EXTERNOS - R$25,00</span>
+<button onclick="comprarWhatsApp('Externo Individual R$25')">COMPRAR</button>
+</div>
+</div>
 
-    </div>
+<div class="bloco">
+<h3>COMBOS</h3>
+
+<div class="preco-item">
+<span>Calouro Ambiental/Itec Casadinho - R$25,00</span>
+<button onclick="comprarWhatsApp('Combo Calouro Casadinho R$25')">COMPRAR</button>
+</div>
+
+<div class="preco-item">
+<span>Calouro Ambiental/Itec Triplo - R$35,00</span>
+<button onclick="comprarWhatsApp('Combo Calouro Triplo R$35')">COMPRAR</button>
+</div>
+
+<div class="preco-item">
+<span>Veterano Ambiental/Itec Casadinho - R$35,00</span>
+<button onclick="comprarWhatsApp('Combo Veterano Casadinho R$35')">COMPRAR</button>
+</div>
+
+<div class="preco-item">
+<span>Veterano Ambiental/Itec Triplo - R$50,00</span>
+<button onclick="comprarWhatsApp('Combo Veterano Triplo R$50')">COMPRAR</button>
+</div>
+
+<div class="preco-item">
+<span>Externo Casadinho - R$45,00</span>
+<button onclick="comprarWhatsApp('Combo Externo Casadinho R$45')">COMPRAR</button>
+</div>
+
+<div class="preco-item">
+<span>Externo Triplo - R$60,00</span>
+<button onclick="comprarWhatsApp('Combo Externo Triplo R$60')">COMPRAR</button>
+</div>
+
+</div>
 </section>
 
 <footer>
