@@ -1,310 +1,292 @@
-/* CONFIGURAÇÃO GLOBAL */
-body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(180deg, #001f2d, #004466, #001f2d);
-    background-attachment: fixed;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
-    position: relative;
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* FUNDO DE ONDAS ANIMADAS */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(78,183,209,0.2) 0%, transparent 70%);
-    animation: ondas 10s linear infinite;
-    z-index: -1;
+body{
+font-family:'Orbitron',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+position:relative;
+text-align:center;
 }
 
-@keyframes ondas {
-    0% { transform: translateX(0) translateY(0); }
-    50% { transform: translateX(50px) translateY(30px); }
-    100% { transform: translateX(0) translateY(0); }
+/* FUNDO ÁGUA CAINDO */
+.chuva{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background: repeating-linear-gradient(
+to bottom,
+rgba(0,170,255,0.08),
+rgba(0,170,255,0.08) 2px,
+transparent 2px,
+transparent 8px
+);
+animation:cair 1s linear infinite;
+z-index:-2;
+}
+
+@keyframes cair{
+from{background-position:0 0;}
+to{background-position:0 40px;}
+}
+
+/* GOTAS CAINDO */
+.gota{
+position:fixed;
+top:-20px;
+width:4px;
+height:15px;
+background:rgba(0,180,255,0.6);
+border-radius:50%;
+animation:drop linear infinite;
+z-index:-1;
+}
+
+@keyframes drop{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+/* RELÓGIO */
+.relogio{
+position:fixed;
+top:15px;
+right:20px;
+font-size:18px;
+color:#00bfff;
 }
 
 /* HERO */
-.hero {
-    padding: 80px 20px;
+.hero{
+padding:80px 20px 40px;
 }
 
-.titulo-hidraulico {
-    font-size: 60px;
-    font-weight: 900;
-    background: linear-gradient(90deg, #4eb7d1, #ffffff, #4eb7d1);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: agua 4s linear infinite;
+.titulo-hidraulico{
+font-size:48px;
+color:#fff;
 }
 
-@keyframes agua {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
+.encaixe{
+font-size:28px;
+color:#00bfff;
+position:relative;
+overflow:hidden;
 }
 
-.encaixe {
-    color: #4eb7d1;
-    font-size: 28px;
-    margin-top: -20px;
+/* EFEITO ÁGUA PASSANDO NO TEXTO */
+.encaixe::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:200%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,200,255,0.4),
+transparent
+);
+animation:aguaPassando 3s linear infinite;
 }
 
-.info {
-    opacity: 0.8;
+@keyframes aguaPassando{
+to{
+left:100%;
+}
 }
 
-/* SEÇÃO SOBRE */
-.sobre h2 {
-    font-size: 32px;
-    color: #4eb7d1;
-    margin-bottom: 20px;
+.info{
+margin-top:8px;
+color:#fff;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 40px;
+/* LUIGI */
+.personagens{
+height:140px;
+position:relative;
+overflow:hidden;
+margin-top:30px;
 }
 
-.card {
-    background: #0b1f26;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #4eb7d1;
-    transition: 0.3s;
+.personagem{
+height:120px;
+position:absolute;
+animation:luigiRun 6s linear infinite;
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* MARIO E LUIGI LOOP */
-.personagens {
-    overflow: hidden;
-    margin: 40px 0;
-}
-
-.personagens-track {
-    display: flex;
-    gap: 40px;
-    width: max-content;
-    animation: loop 15s linear infinite; /* animação padrão */
-}
-
-.personagens img {
-    width: 100px;
-    filter: drop-shadow(0 0 10px #4eb7d1);
-}
-
-/* Animação padrão (mais lenta) */
-@keyframes loop {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(50%); }
-}
-
-/* Animação mais rápida para uma imagem específica */
-.personagens img.rapido {
-    animation: loopRapido 8s linear infinite; /* mais rápido */
-}
-
-@keyframes loopRapido {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(80%); }
+@keyframes luigiRun{
+0%{left:-150px;}
+100%{left:110%;}
 }
 
 /* CONTADOR */
-.contador-section h2 {
-    font-size: 28px;
-    color: #4eb7d1;
-    margin-bottom: 20px;
+.contador-section{
+padding:40px 20px;
 }
 
-#contador {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.painel{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
-.tempo-box {
-    background: #0b1f26;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px #4eb7d1;
+.bloco-tempo{
+background:#111;
+padding:15px 18px;
+border:1px solid #00bfff;
+border-radius:6px;
+min-width:70px;
 }
 
-.tempo-box span {
-    font-size: 40px;
-    display: block;
+.numero{
+font-size:28px;
+color:#00bfff;
+}
+
+.legenda{
+font-size:10px;
+color:#fff;
+margin-top:4px;
+}
+
+.separador{
+font-size:22px;
+color:#00bfff;
 }
 
 /* PLAYLIST */
-.playlist h2 {
-    font-size: 28px;
-    color: #4eb7d1;
-    margin-bottom: 20px;
+.playlist{
+padding:40px 20px;
 }
 
-/* MÚSICA */
-.musica h2 {
-    font-size: 28px;
-    color: #4eb7d1;
-    margin-bottom: 20px;
+/* MUSICA */
+.musica{
+padding:40px 20px;
 }
 
-.botoes-musica {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.musica-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
-.botoes-musica button {
-    background-color: #25D366;
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s;
+.musica input{
+padding:10px;
+border:none;
+outline:none;
+width:250px;
 }
 
-.botoes-musica button:hover {
-    background-color: #1ebe57;
-    transform: scale(1.05);
+.musica button{
+padding:10px 15px;
+background:#00bfff;
+color:#000;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+.musica button:hover{
+background:#fff;
+color:#00bfff;
 }
 
 /* LOCALIZAÇÃO */
-.localizacao {
-    padding: 40px 20px;
+.localizacao{
+padding:40px 20px;
 }
 
-.localizacao h2 {
-    font-size: 28px;
-    color: #4eb7d1;
-    margin-bottom: 20px;
+.botao-maps{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#00bfff;
+color:#000;
+text-decoration:none;
+font-weight:bold;
 }
 
-.botao-mapa {
-    display: inline-block;
-    background-color: #25D366;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s;
+.botao-maps:hover{
+background:#fff;
+color:#00bfff;
 }
 
-.botao-mapa:hover {
-    background-color: #1ebe57;
-    transform: scale(1.05);
+/* INGRESSOS */
+.valores{
+padding:40px 20px;
 }
 
-.localizacao .mapa iframe {
-    border-radius: 15px;
-    box-shadow: 0 0 20px #4eb7d1;
-    width: 100%;
-    height: 400px;
+.bloco{
+background:#111;
+padding:25px;
+margin:25px auto;
+max-width:500px;
+border:1px solid #00bfff;
 }
 
-/* VALORES */
-.valores h2 {
-    font-size: 24px;
-    color: #4eb7d1;
-    margin-bottom: 12px;
+.preco-item{
+margin:20px 0;
+display:flex;
+flex-direction:column;
+gap:10px;
+font-size:16px;
 }
 
-.valores-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* duas colunas fixas */
-    gap: 20px;
-    justify-content: center;
-    padding: 15px;
-    max-width: 800px;
-    margin: 0 auto;
+.preco-item button{
+padding:12px;
+background:#00bfff;
+color:#000;
+border:none;
+cursor:pointer;
+font-weight:bold;
 }
 
-.bloco {
-    background: #08161c;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px #4eb7d1;
-    text-align: center;
+.preco-item button:hover{
+background:#fff;
+color:#00bfff;
 }
 
-/* INDIVIDUAL mais destacado */
-.bloco:first-child {
-    font-size: 1rem; /* aumenta fonte geral */
-    letter-spacing: 1px; /* separa mais as palavras */
-    line-height: 1.6; /* aumenta altura da linha */
+/* FOOTER */
+footer{
+padding:30px;
+background:#000;
+color:#fff;
+margin-top:40px;
 }
 
-.bloco h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.categoria {
-    margin-top: 10px;
-    color: #4eb7d1;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-.preco-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; /* mais espaço entre elementos */
-    padding: 4px 0;
-    font-size: 0.95rem; /* fonte maior */
-    letter-spacing: 0.5px; /* separação extra */
-}
-
-.preco-item span {
-    font-weight: bold;
-    animation: neon 1.5s infinite alternate;
-}
-
-@keyframes neon {
-    from { color: #fff; }
-    to { color: #4eb7d1; text-shadow: 0 0 10px #4eb7d1; }
-}
-
-.preco-item button {
-    background-color: #25D366;
-    color: #fff;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-.preco-item button:hover {
-    background-color: #1ebe57;
-    transform: scale(1.05);
+.mapa{
+max-width:800px;
+margin:30px auto;
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
-    .valores-grid {
-        grid-template-columns: 1fr; /* em telas menores vira uma coluna */
-    }
+@media(max-width:768px){
+
+.titulo-hidraulico{
+font-size:34px;
+}
+
+.encaixe{
+font-size:20px;
+}
+
+.numero{
+font-size:22px;
+}
+
 }
